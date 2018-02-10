@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         app:background="@drawable/bubble_middle"
-        app:text="HOLA CARACOLAOLA CARACOLA"
+        app:text="HOLA CARACOLAOLA CARACOLA HOLA CARACOLAOLA CARACOLA HOLA\nCARACOLA "
         />
 
     <com.fireshield.fschatbubble.FSChatBubble
