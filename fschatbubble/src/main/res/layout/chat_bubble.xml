@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_backgound"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bubble_down"
+    android:orientation="vertical"
+    android:layout_margin="1dp"
+    >
+
+  <TextView
+      android:id="@+id/tv_chat_content"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:paddingLeft="13dp"
+      android:paddingRight="13dp"
+      android:layout_centerVertical="true"
+      android:gravity="right"
+      android:text="COLACOALCOALCAOLAC"
+      android:textColor="#000"
+      />
+
+</RelativeLayout>

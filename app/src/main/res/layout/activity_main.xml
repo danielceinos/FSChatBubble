@@ -17,4 +17,40 @@
       app:layout_constraintTop_toTopOf="parent"
       />
 
+  <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="8dp"
+      android:layout_marginRight="8dp"
+      android:layout_marginTop="8dp"
+      android:orientation="vertical"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      >
+
+    <com.fireshield.fschatbubble.FSChatBubble
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:background="@drawable/bubble_top"
+        android:layout_gravity="right"
+        app:text="HOLA CARACOLA"
+        />
+
+    <com.fireshield.fschatbubble.FSChatBubble
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        app:background="@drawable/bubble_middle"
+        app:text="HOLA CARACOLAOLA CARACOLA"
+        />
+
+    <com.fireshield.fschatbubble.FSChatBubble
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        app:background="@drawable/bubble_down"
+        app:text="HOLA"
+        />
+  </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="FSChatBubble">
+    <attr format="dimension" name="textSize" />
+    <attr format="string" name="text" />
+    <attr format="color" name="bubbleColor" />
+    <attr format="color" name="textColor" />
+    <attr format="reference" name="background" />
+  </declare-styleable>
+</resources>
