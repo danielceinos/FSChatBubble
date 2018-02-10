@@ -25,7 +25,7 @@ class FSChatBubble(context: Context?, attrs: AttributeSet?) : FrameLayout(contex
     ta.recycle()
 
     if (background != -1)
-      findViewById<View>(R.id.tv_chat_content).setBackgroundResource(background)
+      findViewById<View>(R.id.v_background).setBackgroundResource(background)
     findViewById<TextView>(R.id.tv_chat_content).text = text
     findViewById<TextView>(R.id.tv_chat_content).setTextColor(textColor)
   }
