@@ -1,5 +1,6 @@
 package com.fireshield.fschatbubble
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
@@ -17,6 +18,12 @@ class FSChatBubble(context: Context?, attrs: AttributeSet?) : FrameLayout(contex
     set(value) {
       field = value
       findViewById<View>(R.id.v_background).background = value?.shape
+    }
+  var text: String = ""
+    @SuppressLint("WrongViewCast")
+    set(value) {
+      field = value
+      findViewById<TextView>(R.id.tv_chat_content).text = value
     }
 
   init {
@@ -43,7 +50,7 @@ class FSChatBubble(context: Context?, attrs: AttributeSet?) : FrameLayout(contex
     val tvChatContent = findViewById<TextView>(R.id.tv_chat_content)
     tvChatContent.text = text
     tvChatContent.setTextColor(textColor)
-    tvChatContent.textSize = textSize
+    tvChatContent.textSize = textSize/2
 
   }
 
