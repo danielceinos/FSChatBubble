@@ -7,7 +7,7 @@ import android.graphics.drawable.GradientDrawable
 /**
  * Created by Daniel S on 11/02/2018.
  */
-class FSBubbleBackground(bgColor: Int, bottomLeftRadius: Float, bottomRightRadius: Float, topLeftRadius: Float, topRightRadius: Float) {
+class FSBubbleBackground(bgColor: Int, topLeftRadius: Float, topRightRadius: Float, bottomRightRadius: Float, bottomLeftRadius: Float) {
 
   var shape: GradientDrawable
   var cornerRadius: FloatArray = FloatArray(8)
@@ -24,25 +24,26 @@ class FSBubbleBackground(bgColor: Int, bottomLeftRadius: Float, bottomRightRadiu
   init {
     shape = GradientDrawable()
     shape.shape = GradientDrawable.RECTANGLE
-    setCornersRadius(bottomLeftRadius, bottomRightRadius, topLeftRadius, topRightRadius)
+    setCornersRadius(topLeftRadius, topRightRadius, bottomRightRadius, bottomLeftRadius)
     shape.cornerRadii = cornerRadius
     shape.setColor(bgColor)
   }
 
-  fun setCornersRadius(bottomLeftRadius: Float?, bottomRightRadius: Float?, topLeftRadius: Float?, topRightRadius: Float?) {
-    bottomLeftRadius?.let {
+  //ordered top-left, top-right, bottom-right, bottom-left
+  fun setCornersRadius(topLeftRadius: Float?, topRightRadius: Float?, bottomRightRadius: Float?, bottomLeftRadius: Float?) {
+    topLeftRadius?.let {
       cornerRadius[0] = it
       cornerRadius[1] = it
     }
-    bottomRightRadius?.let {
+    topRightRadius?.let {
       cornerRadius[2] = it
       cornerRadius[3] = it
     }
-    topLeftRadius?.let {
+    bottomRightRadius?.let {
       cornerRadius[4] = it
       cornerRadius[5] = it
     }
-    topRightRadius?.let {
+    bottomLeftRadius?.let {
       cornerRadius[6] = it
       cornerRadius[7] = it
     }
@@ -53,13 +54,27 @@ class FSBubbleBackground(bgColor: Int, bottomLeftRadius: Float, bottomRightRadiu
     private val radiusBig = dpToPx(13)
     private val radiusSmall = dpToPx(4)
 
-    val RightTop: FSBubbleBackground = FSBubbleBackground(Color.BLUE, radiusBig, radiusSmall, radiusBig, radiusSmall)
+    val RightTop: FSBubbleBackground = FSBubbleBackground(Color.BLUE, radiusBig, radiusBig, radiusSmall, radiusBig)
     val RightMiddle: FSBubbleBackground = FSBubbleBackground(Color.BLUE, radiusBig, radiusSmall, radiusSmall, radiusBig)
-    val RightBottom: FSBubbleBackground = FSBubbleBackground(Color.BLUE, radiusBig, 0F, radiusSmall, radiusBig)
+    val RightBottom: FSBubbleBackground = FSBubbleBackground(Color.BLUE, radiusBig, radiusSmall, 0F, radiusBig)
 
-    val LeftTop: FSBubbleBackground = FSBubbleBackground(Color.BLUE, radiusSmall, radiusBig, radiusBig, radiusSmall)
+    val LeftTop: FSBubbleBackground = FSBubbleBackground(Color.BLUE, radiusBig, radiusBig, radiusBig, radiusSmall)
     val LeftMiddle: FSBubbleBackground = FSBubbleBackground(Color.BLUE, radiusSmall, radiusBig, radiusBig, radiusSmall)
-    val LeftBottom: FSBubbleBackground = FSBubbleBackground(Color.BLUE, 0F, radiusBig, radiusBig, radiusSmall)
+    val LeftBottom: FSBubbleBackground = FSBubbleBackground(Color.BLUE, radiusSmall, radiusBig, radiusBig, 0F)
+
+    fun getDefaultAt(indx: Int): FSBubbleBackground {
+      return when (indx) {
+        0 -> RightTop
+        1 -> RightMiddle
+        2 -> RightBottom
+        3 -> LeftTop
+        4 -> LeftMiddle
+        5 -> LeftBottom
+        else -> {
+          RightTop
+        }
+      }
+    }
 
     private fun dpToPx(dp: Int): Float {
       return (dp * Resources.getSystem().displayMetrics.density)

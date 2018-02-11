@@ -19,7 +19,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        app:background="@drawable/bubble_top_right"
+        app:bubbleBackground="rightTop"
+        app:bubbleColor="#ea80fc"
         app:text="HOLA CARACOLA"
         />
 
@@ -27,7 +28,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        app:background="@drawable/bubble_middle_right"
+        app:bubbleBackground="rightMiddle"
+        app:bubbleColor="#ea80fc"
         app:text="HOLA CARACOLAOLA CARACOLA HOLA CARACOLAOLA CARACOLA HOLA CARACOLA HOLA CARACOLAOLA CARACOLA HOLA CARACOLA HOLA CARACOLAOLA CARACOLA HOLA CARACOLA HOLA CARACOLAOLA CARACOLA HOLA CARACOLA "
         />
 
@@ -35,7 +37,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        app:background="@drawable/bubble_down_right"
+        app:bubbleBackground="rightBottom"
+        app:bubbleColor="#ea80fc"
         app:text="HOLA"
         />
   </LinearLayout>
@@ -51,7 +54,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
-        app:background="@drawable/bubble_top_left"
+        app:bubbleBackground="leftTop"
+        app:bubbleColor="#e040fb"
         app:text="HOLA CARACOLA"
         />
 
@@ -59,7 +63,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
-        app:background="@drawable/bubble_middle_left"
+        app:bubbleBackground="leftMiddle"
+        app:bubbleColor="#e040fb"
         app:text="HOLA \nHOLA \nHOLA \nHOLA \nHOLA \nHOLA"
         />
 
@@ -67,7 +72,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
-        app:background="@drawable/bubble_down_left"
+        app:bubbleBackground="leftBottom"
+        app:bubbleColor="#e040fb"
         app:text="HOLA"
         />
   </LinearLayout>
