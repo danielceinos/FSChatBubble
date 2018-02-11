@@ -7,14 +7,20 @@ import android.view.View
 import android.widget.FrameLayout
 import android.widget.TextView
 
+
 /**
  * Created by Daniel S on 10/02/2018.
  */
 class FSChatBubble(context: Context?, attrs: AttributeSet?) : FrameLayout(context, attrs) {
+  
+  var bubbleBg: FSBubbleBackground? = null
+    set(value) {
+      field = value
+      findViewById<View>(R.id.v_background).background = value?.shape
+    }
 
   init {
     initialize(context!!)
-
 
     val ta = context.obtainStyledAttributes(attrs, R.styleable.FSChatBubble, 0, 0)
     val textSize = ta.getDimension(R.styleable.FSChatBubble_textSize, 0F)
@@ -24,10 +30,16 @@ class FSChatBubble(context: Context?, attrs: AttributeSet?) : FrameLayout(contex
     val background = ta.getResourceId(R.styleable.FSChatBubble_background, -1)
     ta.recycle()
 
-    if (background != -1)
+    if (background != -1) {
       findViewById<View>(R.id.v_background).setBackgroundResource(background)
-    findViewById<TextView>(R.id.tv_chat_content).text = text
-    findViewById<TextView>(R.id.tv_chat_content).setTextColor(textColor)
+    }
+    val tvChatContent = findViewById<TextView>(R.id.tv_chat_content)
+
+    tvChatContent.text = text
+    tvChatContent.setTextColor(textColor)
+    tvChatContent.textSize = textSize
+
+    bubbleBg?.bgColor = bubbleColor
   }
 
   private fun initialize(context: Context) {
