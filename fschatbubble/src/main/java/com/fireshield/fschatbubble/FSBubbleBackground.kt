@@ -54,13 +54,31 @@ class FSBubbleBackground(bgColor: Int, topLeftRadius: Float, topRightRadius: Flo
     private val radiusBig = dpToPx(13)
     private val radiusSmall = dpToPx(4)
 
-    val RightTop: FSBubbleBackground = FSBubbleBackground(Color.BLUE, radiusBig, radiusBig, radiusSmall, radiusBig)
-    val RightMiddle: FSBubbleBackground = FSBubbleBackground(Color.BLUE, radiusBig, radiusSmall, radiusSmall, radiusBig)
-    val RightBottom: FSBubbleBackground = FSBubbleBackground(Color.BLUE, radiusBig, radiusSmall, 0F, radiusBig)
+    val RightTop: FSBubbleBackground
+      get() {
+        return FSBubbleBackground(Color.BLUE, radiusBig, radiusBig, radiusSmall, radiusBig)
+      }
+    val RightMiddle: FSBubbleBackground
+      get() {
+        return FSBubbleBackground(Color.BLUE, radiusBig, radiusSmall, radiusSmall, radiusBig)
+      }
+    val RightBottom: FSBubbleBackground
+      get() {
+        return FSBubbleBackground(Color.BLUE, radiusBig, radiusSmall, 0F, radiusBig)
+      }
 
-    val LeftTop: FSBubbleBackground = FSBubbleBackground(Color.BLUE, radiusBig, radiusBig, radiusBig, radiusSmall)
-    val LeftMiddle: FSBubbleBackground = FSBubbleBackground(Color.BLUE, radiusSmall, radiusBig, radiusBig, radiusSmall)
-    val LeftBottom: FSBubbleBackground = FSBubbleBackground(Color.BLUE, radiusSmall, radiusBig, radiusBig, 0F)
+    val LeftTop: FSBubbleBackground
+      get() {
+        return FSBubbleBackground(Color.BLUE, radiusBig, radiusBig, radiusBig, radiusSmall)
+      }
+    val LeftMiddle: FSBubbleBackground
+      get() {
+        return FSBubbleBackground(Color.BLUE, radiusSmall, radiusBig, radiusBig, radiusSmall)
+      }
+    val LeftBottom: FSBubbleBackground
+      get() {
+        return FSBubbleBackground(Color.BLUE, radiusSmall, radiusBig, radiusBig, 0F)
+      }
 
     fun getDefaultAt(indx: Int): FSBubbleBackground {
       return when (indx) {

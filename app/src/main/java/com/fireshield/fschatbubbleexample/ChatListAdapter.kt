@@ -39,7 +39,11 @@ class ChatListAdapter(var chatList: ArrayList<Item>) : RecyclerView.Adapter<Chat
           background = FSBubbleBackground.RightMiddle
         }
       } else {
-        background = FSBubbleBackground.RightTop
+        if (itemNext?.owner != item.owner) {
+          background = FSBubbleBackground.RightBottom
+        } else {
+          background = FSBubbleBackground.RightTop
+        }
       }
     } else if (item.owner == 1) {
       if (itemPrev?.owner == item.owner) {
@@ -49,7 +53,11 @@ class ChatListAdapter(var chatList: ArrayList<Item>) : RecyclerView.Adapter<Chat
           background = FSBubbleBackground.LeftMiddle
         }
       } else {
-        background = FSBubbleBackground.LeftTop
+        if (itemNext?.owner != item.owner) {
+          background = FSBubbleBackground.LeftBottom
+        } else {
+          background = FSBubbleBackground.LeftTop
+        }
       }
     } else {
       background = null
@@ -78,6 +86,8 @@ class ChatListAdapter(var chatList: ArrayList<Item>) : RecyclerView.Adapter<Chat
       } else {
         params.addRule(RelativeLayout.ALIGN_PARENT_LEFT)
       }
+      params.setMargins(5, 0, 5, 0)
+
       bubble.layoutParams = params
 
     }
