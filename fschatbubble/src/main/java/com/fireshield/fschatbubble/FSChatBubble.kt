@@ -51,7 +51,7 @@ class FSChatBubble(context: Context?, attrs: AttributeSet?) : FrameLayout(contex
     val tvChatContent = findViewById<TextView>(R.id.tv_chat_content)
     tvChatContent.text = text
     tvChatContent.setTextColor(textColor)
-    tvChatContent.textSize = textSize/2
+    tvChatContent.textSize = textSize / 2
 
   }
 

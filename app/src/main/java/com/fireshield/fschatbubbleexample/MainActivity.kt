@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     findViewById<Button>(R.id.b_send_izq).setOnClickListener {
       adapter.add(ChatListAdapter.Item(1, etMsg.text.toString()))
       etMsg.setText("")
-      recyclerView.scrollToPosition (adapter.itemCount - 1)
+      recyclerView.scrollToPosition(adapter.itemCount - 1)
     }
   }
 }

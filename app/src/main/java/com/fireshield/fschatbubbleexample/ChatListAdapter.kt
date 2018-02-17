@@ -2,7 +2,6 @@ package com.fireshield.fschatbubbleexample
 
 import android.graphics.Color
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.View.GONE
@@ -71,13 +70,14 @@ class ChatListAdapter(var chatList: ArrayList<Item>) : RecyclerView.Adapter<Chat
   }
 
   fun add(item: Item) {
+    if (chatList.lastOrNull()?.owner != item.owner)
+      chatList.add(Item(2, ""))
     chatList.add(item)
     notifyDataSetChanged()
   }
 
   class ViewHolder(val bubbleView: View) : RecyclerView.ViewHolder(bubbleView) {
     fun bind(content: String, background: FSBubbleBackground, owner: Int) {
-      Log.e("TAG", "Texto: " + content)
       bubbleView.findViewById<FSChatBubble>(R.id.bubble_chat).visibility = VISIBLE
       bubbleView.findViewById<View>(R.id.separator).visibility = GONE
 
@@ -95,7 +95,6 @@ class ChatListAdapter(var chatList: ArrayList<Item>) : RecyclerView.Adapter<Chat
       params.setMargins(5, 0, 5, 0)
 
       bubble.layoutParams = params
-      bubble.requestLayout()
     }
 
     fun bindSeparator() {
