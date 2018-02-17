@@ -24,6 +24,7 @@ class FSChatBubble(context: Context?, attrs: AttributeSet?) : FrameLayout(contex
     set(value) {
       field = value
       findViewById<TextView>(R.id.tv_chat_content).text = value
+      findViewById<TextView>(R.id.tv_chat_content).requestLayout()
     }
 
   init {
