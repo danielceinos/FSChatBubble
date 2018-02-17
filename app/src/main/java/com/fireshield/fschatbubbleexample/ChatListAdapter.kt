@@ -81,19 +81,20 @@ class ChatListAdapter(var chatList: ArrayList<Item>) : RecyclerView.Adapter<Chat
       bubbleView.findViewById<FSChatBubble>(R.id.bubble_chat).visibility = VISIBLE
       bubbleView.findViewById<View>(R.id.separator).visibility = GONE
 
-      val bubble = bubbleView.findViewById<FSChatBubble>(R.id.bubble_chat)
-      bubble.text = content
-      bubble.bubbleBg = background
-
       val params = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
           ViewGroup.LayoutParams.WRAP_CONTENT)
       if (owner == 0) {
+        background.bgColor = Color.parseColor("#99cddc")
         params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT)
       } else {
+        background.bgColor = Color.parseColor("#AFEEEE")
         params.addRule(RelativeLayout.ALIGN_PARENT_LEFT)
       }
       params.setMargins(5, 0, 5, 0)
 
+      val bubble = bubbleView.findViewById<FSChatBubble>(R.id.bubble_chat)
+      bubble.text = content
+      bubble.bubbleBg = background
       bubble.layoutParams = params
     }
 

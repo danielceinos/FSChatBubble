@@ -11,7 +11,7 @@
       android:layout_marginLeft="6dp"
       android:layout_marginRight="6dp"
       app:textColor="#FFF"
-      app:textSize="12sp"
+      app:textSize="20sp"
       />
 
   <View
