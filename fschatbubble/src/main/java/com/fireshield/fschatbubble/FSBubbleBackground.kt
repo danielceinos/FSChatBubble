@@ -51,9 +51,13 @@ class FSBubbleBackground(bgColor: Int, topLeftRadius: Float, topRightRadius: Flo
   }
 
   companion object {
-    private val radiusBig = dpToPx(13)
+    private val radiusBig = dpToPx(30)
     private val radiusSmall = dpToPx(4)
 
+    val RightSingle: FSBubbleBackground
+      get() {
+        return FSBubbleBackground(Color.BLUE, radiusBig, radiusBig, 0f, radiusBig)
+      }
     val RightTop: FSBubbleBackground
       get() {
         return FSBubbleBackground(Color.BLUE, radiusBig, radiusBig, radiusSmall, radiusBig)
@@ -67,6 +71,10 @@ class FSBubbleBackground(bgColor: Int, topLeftRadius: Float, topRightRadius: Flo
         return FSBubbleBackground(Color.BLUE, radiusBig, radiusSmall, 0F, radiusBig)
       }
 
+    val LeftSingle: FSBubbleBackground
+      get() {
+        return FSBubbleBackground(Color.BLUE, radiusBig, radiusBig, radiusBig, 0f)
+      }
     val LeftTop: FSBubbleBackground
       get() {
         return FSBubbleBackground(Color.BLUE, radiusBig, radiusBig, radiusBig, radiusSmall)

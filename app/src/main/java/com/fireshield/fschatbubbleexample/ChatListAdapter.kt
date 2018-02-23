@@ -39,7 +39,7 @@ class ChatListAdapter(var chatList: ArrayList<Item>) : RecyclerView.Adapter<Chat
         }
       } else {
         if (itemNext?.owner != item.owner) {
-          background = FSBubbleBackground.RightBottom
+          background = FSBubbleBackground.RightSingle
         } else {
           background = FSBubbleBackground.RightTop
         }
@@ -53,7 +53,7 @@ class ChatListAdapter(var chatList: ArrayList<Item>) : RecyclerView.Adapter<Chat
         }
       } else {
         if (itemNext?.owner != item.owner) {
-          background = FSBubbleBackground.LeftBottom
+          background = FSBubbleBackground.LeftSingle
         } else {
           background = FSBubbleBackground.LeftTop
         }
@@ -73,7 +73,8 @@ class ChatListAdapter(var chatList: ArrayList<Item>) : RecyclerView.Adapter<Chat
     if (chatList.lastOrNull()?.owner != item.owner)
       chatList.add(Item(2, ""))
     chatList.add(item)
-    notifyDataSetChanged()
+    notifyItemChanged(chatList.size-2)
+    notifyItemInserted(chatList.size-1)
   }
 
   class ViewHolder(val bubbleView: View) : RecyclerView.ViewHolder(bubbleView) {

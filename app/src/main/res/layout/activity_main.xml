@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.fireshield.fschatbubbleexample.MainActivity"
+    android:animateLayoutChanges="true"
     >
 
   <android.support.v7.widget.RecyclerView
@@ -13,7 +14,6 @@
       android:layout_height="match_parent"
       android:layout_above="@id/cl_text_box"
       />
-
 
   <android.support.constraint.ConstraintLayout
       android:id="@+id/cl_text_box"
