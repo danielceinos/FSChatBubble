@@ -6,13 +6,15 @@
     <attr format="color" name="bubbleColor" />
     <attr format="color" name="textColor" />
     <attr format="reference" name="background" />
-    <attr name="bubbleBackground">
-      <flag name="rightTop" value="0" />
-      <flag name="rightMiddle" value="1" />
-      <flag name="rightBottom" value="2" />
-      <flag name="leftTop" value="3" />
-      <flag name="leftMiddle" value="4" />
-      <flag name="leftBottom" value="5" />
+    <attr name="bubblePosition">
+      <flag name="rightSingle" value="0" />
+      <flag name="rightTop" value="1" />
+      <flag name="rightMiddle" value="2" />
+      <flag name="rightBottom" value="3" />
+      <flag name="leftSingle" value="4" />
+      <flag name="leftTop" value="5" />
+      <flag name="leftMiddle" value="6" />
+      <flag name="leftBottom" value="7" />
     </attr>
   </declare-styleable>
 </resources>

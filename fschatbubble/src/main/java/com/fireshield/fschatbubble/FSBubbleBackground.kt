@@ -54,50 +54,31 @@ class FSBubbleBackground(bgColor: Int, topLeftRadius: Float, topRightRadius: Flo
     private val radiusBig = dpToPx(30)
     private val radiusSmall = dpToPx(4)
 
-    val RightSingle: FSBubbleBackground
-      get() {
-        return FSBubbleBackground(Color.BLUE, radiusBig, radiusBig, 0f, radiusBig)
+    fun setCornersForPosition(position: Position, radiusBig: Float, radiusSmall: Float): FSBubbleBackground {
+      return when (position) {
+        Position.RightSingle -> FSBubbleBackground(Color.BLUE, radiusBig, radiusBig, 0f, radiusBig)
+        Position.RightTop -> FSBubbleBackground(Color.BLUE, radiusBig, radiusBig, radiusSmall, radiusBig)
+        Position.RightMiddle -> FSBubbleBackground(Color.BLUE, radiusBig, radiusSmall, radiusSmall, radiusBig)
+        Position.RightBottom -> FSBubbleBackground(Color.BLUE, radiusBig, radiusSmall, 0F, radiusBig)
+        Position.LeftSingle -> FSBubbleBackground(Color.BLUE, radiusBig, radiusBig, radiusBig, 0f)
+        Position.LeftTop -> FSBubbleBackground(Color.BLUE, radiusBig, radiusBig, radiusBig, radiusSmall)
+        Position.LeftMiddle -> FSBubbleBackground(Color.BLUE, radiusSmall, radiusBig, radiusBig, radiusSmall)
+        Position.LeftBottom -> FSBubbleBackground(Color.BLUE, radiusSmall, radiusBig, radiusBig, 0F)
       }
-    val RightTop: FSBubbleBackground
-      get() {
-        return FSBubbleBackground(Color.BLUE, radiusBig, radiusBig, radiusSmall, radiusBig)
-      }
-    val RightMiddle: FSBubbleBackground
-      get() {
-        return FSBubbleBackground(Color.BLUE, radiusBig, radiusSmall, radiusSmall, radiusBig)
-      }
-    val RightBottom: FSBubbleBackground
-      get() {
-        return FSBubbleBackground(Color.BLUE, radiusBig, radiusSmall, 0F, radiusBig)
-      }
+    }
 
-    val LeftSingle: FSBubbleBackground
-      get() {
-        return FSBubbleBackground(Color.BLUE, radiusBig, radiusBig, radiusBig, 0f)
-      }
-    val LeftTop: FSBubbleBackground
-      get() {
-        return FSBubbleBackground(Color.BLUE, radiusBig, radiusBig, radiusBig, radiusSmall)
-      }
-    val LeftMiddle: FSBubbleBackground
-      get() {
-        return FSBubbleBackground(Color.BLUE, radiusSmall, radiusBig, radiusBig, radiusSmall)
-      }
-    val LeftBottom: FSBubbleBackground
-      get() {
-        return FSBubbleBackground(Color.BLUE, radiusSmall, radiusBig, radiusBig, 0F)
-      }
-
-    fun getDefaultAt(indx: Int): FSBubbleBackground {
-      return when (indx) {
-        0 -> RightTop
-        1 -> RightMiddle
-        2 -> RightBottom
-        3 -> LeftTop
-        4 -> LeftMiddle
-        5 -> LeftBottom
+     fun intToPosition(index: Int): Position {
+      return when (index) {
+        0 -> Position.RightSingle
+        1 -> Position.RightTop
+        2 -> Position.RightMiddle
+        3 -> Position.RightBottom
+        4 -> Position.LeftSingle
+        5 -> Position.LeftTop
+        6 -> Position.LeftMiddle
+        7 -> Position.LeftBottom
         else -> {
-          RightTop
+          Position.NONE
         }
       }
     }
@@ -105,5 +86,17 @@ class FSBubbleBackground(bgColor: Int, topLeftRadius: Float, topRightRadius: Flo
     private fun dpToPx(dp: Int): Float {
       return (dp * Resources.getSystem().displayMetrics.density)
     }
+  }
+
+  enum class Position {
+    RightSingle,
+    RightTop,
+    RightMiddle,
+    RightBottom,
+    LeftSingle,
+    LeftTop,
+    LeftMiddle,
+    LeftBottom,
+    NONE
   }
 }

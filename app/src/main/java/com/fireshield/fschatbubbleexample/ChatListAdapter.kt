@@ -95,7 +95,7 @@ class ChatListAdapter(var chatList: ArrayList<Item>) : RecyclerView.Adapter<Chat
 
       val bubble = bubbleView.findViewById<FSChatBubble>(R.id.bubble_chat)
       bubble.text = content
-      bubble.bubbleBg = background
+      bubble.background = background
       bubble.layoutParams = params
     }
 
