@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="FSChatBubble">
+    <attr format="dimension" name="textSize" />
+    <attr format="string" name="text" />
+    <attr format="color" name="bubbleColor" />
+    <attr format="color" name="textColor" />
+    <attr name="bubblePosition">
+      <flag name="rightSingle" value="0" />
+      <flag name="rightTop" value="1" />
+      <flag name="rightMiddle" value="2" />
+      <flag name="rightBottom" value="3" />
+      <flag name="leftSingle" value="4" />
+      <flag name="leftTop" value="5" />
+      <flag name="leftMiddle" value="6" />
+      <flag name="leftBottom" value="7" />
+    </attr>
+  </declare-styleable>
+</resources>

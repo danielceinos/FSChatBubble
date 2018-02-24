@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+  <com.fireshield.fschatbubble.FSChatBubble
+      android:id="@+id/bubble_chat"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="6dp"
+      android:layout_marginRight="6dp"
+      app:textColor="#FFF"
+      app:textSize="18sp"
+      app:text="Testgin"
+      />
+
+  <View
+      android:id="@+id/separator"
+      android:layout_width="match_parent"
+      android:layout_height="8dp"
+      android:visibility="gone"
+      />
+
+</RelativeLayout>
