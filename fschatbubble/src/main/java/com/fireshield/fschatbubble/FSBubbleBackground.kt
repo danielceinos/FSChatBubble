@@ -62,23 +62,4 @@ class FSBubbleBackground(bgColor: Int, topLeftRadius: Float, topRightRadius: Flo
       FSBubblePosition.NONE -> TODO()
     }
   }
-
-  companion object {
-
-    fun intToPosition(index: Int): FSBubblePosition {
-      return when (index) {
-        0 -> FSBubblePosition.RightSingle
-        1 -> FSBubblePosition.RightTop
-        2 -> FSBubblePosition.RightMiddle
-        3 -> FSBubblePosition.RightBottom
-        4 -> FSBubblePosition.LeftSingle
-        5 -> FSBubblePosition.LeftTop
-        6 -> FSBubblePosition.LeftMiddle
-        7 -> FSBubblePosition.LeftBottom
-        else -> {
-          FSBubblePosition.NONE
-        }
-      }
-    }
-  }
 }

@@ -5,7 +5,7 @@
     <attr format="string" name="text" />
     <attr format="color" name="bubbleColor" />
     <attr format="color" name="textColor" />
-    <attr name="bubbleFSBubblePosition">
+    <attr name="bubblePosition">
       <flag name="rightSingle" value="0" />
       <flag name="rightTop" value="1" />
       <flag name="rightMiddle" value="2" />

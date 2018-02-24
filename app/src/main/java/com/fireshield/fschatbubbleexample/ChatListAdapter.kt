@@ -15,7 +15,7 @@ import com.fireshield.fschatbubble.FSChatBubble
 /**
  * Created by Daniel S on 11/02/2018.
  */
-class ChatListAdapter(var chatList: ArrayList<Item>) : RecyclerView.Adapter<ChatListAdapter.ViewHolder>() {
+class ChatListAdapter(private var chatList: ArrayList<Item>) : RecyclerView.Adapter<ChatListAdapter.ViewHolder>() {
 
   override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
     val v = LayoutInflater.from(parent?.context).inflate(R.layout.row_chat_bubble, parent, false)
@@ -25,7 +25,7 @@ class ChatListAdapter(var chatList: ArrayList<Item>) : RecyclerView.Adapter<Chat
   override fun getItemCount(): Int = chatList.size
 
   override fun onBindViewHolder(holder: ViewHolder?, index: Int) {
-    var bubblePosition: FSBubblePosition
+    val bubblePosition: FSBubblePosition
     val item = chatList[index]
     val itemPrev = chatList.getOrNull(index - 1)
     val itemNext = chatList.getOrNull(index + 1)

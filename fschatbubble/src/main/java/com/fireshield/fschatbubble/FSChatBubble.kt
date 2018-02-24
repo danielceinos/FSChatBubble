@@ -2,7 +2,6 @@ package com.fireshield.fschatbubble
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.res.Resources
 import android.graphics.Color
 import android.util.AttributeSet
 import android.view.View
@@ -15,17 +14,19 @@ import android.widget.TextView
  */
 class FSChatBubble(context: Context?, attrs: AttributeSet?) : FrameLayout(context, attrs) {
 
+  lateinit var tvChatContent: TextView
+  lateinit var vBackground: View
+
   var background: FSBubbleBackground = FSBubbleBackground(Color.RED, 0F, 0F, 0F, 0F)
     set(value) {
       field = value
-      findViewById<View>(R.id.v_background).background = value.shape
+      vBackground.background = value.shape
     }
   var text: String = ""
-    @SuppressLint("WrongViewCast")
     set(value) {
       field = value
-      findViewById<TextView>(R.id.tv_chat_content).text = value
-      findViewById<TextView>(R.id.tv_chat_content).requestLayout()
+      tvChatContent.text = value
+      tvChatContent.requestLayout()
     }
 
   var bubbleFSBubblePosition: FSBubblePosition
@@ -38,12 +39,11 @@ class FSChatBubble(context: Context?, attrs: AttributeSet?) : FrameLayout(contex
     val text = ta.getString(R.styleable.FSChatBubble_text)
     val bubbleColor = ta.getColor(R.styleable.FSChatBubble_bubbleColor, Color.RED)
     val textColor = ta.getColor(R.styleable.FSChatBubble_textColor, Color.WHITE)
-    bubbleFSBubblePosition = FSBubbleBackground.intToPosition(ta.getInt(R.styleable.FSChatBubble_bubblePosition, -1))
+    bubbleFSBubblePosition = intToPosition(ta.getInt(R.styleable.FSChatBubble_bubblePosition, -1))
     ta.recycle()
 
     background.bgColor = bubbleColor
 
-    val tvChatContent = findViewById<TextView>(R.id.tv_chat_content)
     tvChatContent.text = text
     tvChatContent.setTextColor(textColor)
     tvChatContent.textSize = textSize / 2
@@ -51,6 +51,8 @@ class FSChatBubble(context: Context?, attrs: AttributeSet?) : FrameLayout(contex
 
   private fun initialize(context: Context) {
     View.inflate(context, R.layout.chat_bubble, this)
+    vBackground = findViewById<View>(R.id.v_background)
+    tvChatContent = findViewById(R.id.tv_chat_content)
   }
 
   override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
@@ -58,10 +60,23 @@ class FSChatBubble(context: Context?, attrs: AttributeSet?) : FrameLayout(contex
 
     val radius = height / (2F * findViewById<TextView>(R.id.tv_chat_content).lineCount)
     background.setCornersForPosition(bubbleFSBubblePosition, radius, radius / 4)
-    findViewById<View>(R.id.v_background).background = background.shape
+    vBackground.background = background.shape
   }
 
-  private fun dpToPx(dp: Int): Float {
-    return (dp * Resources.getSystem().displayMetrics.density)
+  private fun intToPosition(index: Int): FSBubblePosition {
+    return when (index) {
+      0 -> FSBubblePosition.RightSingle
+      1 -> FSBubblePosition.RightTop
+      2 -> FSBubblePosition.RightMiddle
+      3 -> FSBubblePosition.RightBottom
+      4 -> FSBubblePosition.LeftSingle
+      5 -> FSBubblePosition.LeftTop
+      6 -> FSBubblePosition.LeftMiddle
+      7 -> FSBubblePosition.LeftBottom
+      else -> {
+        FSBubblePosition.NONE
+      }
+    }
   }
+
 }
