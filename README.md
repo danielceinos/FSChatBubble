@@ -4,7 +4,7 @@
 [![Version](https://img.shields.io/badge/jitpack-1.0.0-green.svg)](https://jitpack.io/#danielceinos/FSChatBubble/1.0.0)
 
 <p align="center">
-	<img src="https://github.com/danielceinos/FSChatBubble/blob/develop/example.png" />
+	<img src="https://github.com/danielceinos/FSChatBubble/blob/develop/example.gif" />
 </p>
 
 # Requirements
