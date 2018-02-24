@@ -17,7 +17,7 @@ class FSChatBubble(context: Context?, attrs: AttributeSet?) : FrameLayout(contex
   lateinit var tvChatContent: TextView
   lateinit var vBackground: View
 
-  var background: FSBubbleBackground = FSBubbleBackground(Color.RED, 0F, 0F, 0F, 0F)
+  var background: FSBubbleBackground = FSBubbleBackground(Color.RED, 20F, 20F, 20F, 20F)
     set(value) {
       field = value
       vBackground.background = value.shape
@@ -43,6 +43,7 @@ class FSChatBubble(context: Context?, attrs: AttributeSet?) : FrameLayout(contex
     ta.recycle()
 
     background.bgColor = bubbleColor
+    vBackground.background = background.shape
 
     tvChatContent.text = text
     tvChatContent.setTextColor(textColor)
