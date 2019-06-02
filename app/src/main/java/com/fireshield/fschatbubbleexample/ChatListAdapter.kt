@@ -17,14 +17,14 @@ import com.fireshield.fschatbubble.FSChatBubble
  */
 class ChatListAdapter(private var chatList: ArrayList<Item>) : RecyclerView.Adapter<ChatListAdapter.ViewHolder>() {
 
-  override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
-    val v = LayoutInflater.from(parent?.context).inflate(R.layout.row_chat_bubble, parent, false)
+  override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    val v = LayoutInflater.from(parent.context).inflate(R.layout.row_chat_bubble, parent, false)
     return ViewHolder(v)
   }
 
   override fun getItemCount(): Int = chatList.size
 
-  override fun onBindViewHolder(holder: ViewHolder?, index: Int) {
+  override fun onBindViewHolder(holder: ViewHolder, index: Int) {
     val bubblePosition: FSBubblePosition
     val item = chatList[index]
     val itemPrev = chatList.getOrNull(index - 1)
@@ -62,9 +62,9 @@ class ChatListAdapter(private var chatList: ArrayList<Item>) : RecyclerView.Adap
       bubblePosition = FSBubblePosition.NONE
     }
     if (bubblePosition != FSBubblePosition.NONE) {
-      holder?.bind(chatList[index].content, bubblePosition, item.owner)
+      holder.bind(chatList[index].content, bubblePosition, item.owner)
     } else {
-      holder?.bindSeparator()
+      holder.bindSeparator()
     }
   }
 
